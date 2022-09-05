@@ -1,14 +1,17 @@
 <input name='g-recaptcha-response' id='recaptcha' hidden></input>
 <script src='https://www.google.com/recaptcha/api.js?render=__SITE_KEY'></script>
+<!-- Ensure we have jQuery added to the document -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
 // Handles Google ReCaptcha logic
-btn = document.getElementsByTagName('button')[0]
-form = btn.closest('form')
-btn.addEventListener('click', function(e) {
+recaptchaObject = $("#recaptcha")
+form = recaptchaObject.closest("form")
+btn = form.find(":submit")
+btn.on("click", function (e) {
     e.preventDefault();
     grecaptcha.ready(function() {
-        grecaptcha.execute('__SITE_KEY', { action: 'submit' }).then(function(token) {
-            document.getElementById('recaptcha').value = token
+        grecaptcha.execute("__SITE_KEY", { action: "submit" }).then(function(token) {
+            recaptchaObject.val(token)
             form.submit()
             });
         });

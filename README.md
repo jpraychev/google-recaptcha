@@ -10,7 +10,7 @@ pip install google-recaptcha
 ```
 
 # Introduction
-Current version of the library works by finding a button in your HTML template and uses the form closest to that button. Keep in mind that only one button should be present in your HTML template in order for the library to work.
+Current version of the library works by placing the {{ recaptcha }} object in the form you want to protect. It searches automatically for the form that the object is placed in.
 
 In your views file:
 ```
