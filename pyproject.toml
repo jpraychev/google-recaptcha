@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "google-recaptcha"
-version = "1.0.0"
+version = "1.0.1"
 description = "Google recaptcha helps you protect your web form by using google's latest recaptcha (Completely Automated Public Turing test to tell Computers and Humans Apart) technology."
 authors = ["Jordan Raychev <jpraychev@gmail.com>"]
 maintainers = ["Jordan Raychev <jpraychev@gmail.com>"]
@@ -9,6 +9,8 @@ license = "MIT"
 readme = "README.md"
 classifiers = ["Topic :: Software Development :: Libraries :: Python Modules"]
 keywords = ["recaptcha", "google recaptcha"]
+repository = "https://github.com/jpraychev/google-recaptcha"
+homepage = "https://github.com/jpraychev/google-recaptcha"
 
 [tool.poetry.dependencies]
 python = "^3.10"
