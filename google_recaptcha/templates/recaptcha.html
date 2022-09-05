@@ -1,0 +1,16 @@
+<input name='g-recaptcha-response' id='recaptcha' hidden></input>
+<script src='https://www.google.com/recaptcha/api.js?render=__SITE_KEY'></script>
+<script>
+// Handles Google ReCaptcha logic
+btn = document.getElementsByTagName('button')[0]
+form = btn.closest('form')
+btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    grecaptcha.ready(function() {
+        grecaptcha.execute('__SITE_KEY', { action: 'submit' }).then(function(token) {
+            document.getElementById('recaptcha').value = token
+            form.submit()
+            });
+        });
+    });
+</script>
