@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.1.3] - 2022-09-06
+### Added
+- Added download badge
+
+## [1.1.2] - 2022-09-05
+### Added
+- Added PyPi badge
+
 ## [1.1.1] - 2022-09-05
 ### Added
 - Github action to publish package to PyPi

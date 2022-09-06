@@ -3,6 +3,7 @@ Google recaptcha helps you protect your web form by using google's latest recapt
 (Completely Automated Public Turing test to tell Computers and Humans Apart) technology.
 
 [![PyPi](https://github.com/jpraychev/google-recaptcha/actions/workflows/python-publish.yml/badge.svg)](https://github.com/jpraychev/google-recaptcha/actions/workflows/python-publish.yml)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/google-recaptcha.svg)](https://pypistats.org/packages/google-recaptcha)
 
 # Documentation
 
