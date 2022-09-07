@@ -1,5 +1,10 @@
 # Change Log
 
+
+## [1.1.4] - 2022-09-06
+### Fixed
+- README updated
+
 ## [1.1.3] - 2022-09-06
 ### Added
 - Added download badge

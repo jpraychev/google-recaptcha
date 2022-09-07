@@ -15,11 +15,33 @@ pip install google-recaptcha
 # Introduction
 Current version of the library works by placing the {{ recaptcha }} object in the form you want to protect. It searches automatically for the form that the object is placed in.
 
-In your views file:
+In your views file with RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY exported as environment variables.
+
 ```
+# With environment variables
+
 from google_recaptcha import ReCaptcha
 app = Flask(__name__)
-recaptcha = ReCaptcha(app)
+recaptcha = ReCaptcha(app=app)
+
+@app.route("/contact/", methods=["GET", "POST"])
+def home():
+
+    if recaptcha.verify():
+        print('Recaptcha has successded.')
+    else:
+        print('Recaptcha has failed.')
+```
+
+```
+# Without environment variables
+from google_recaptcha import ReCaptcha
+app = Flask(__name__)
+recaptcha = ReCaptcha(
+    app=app,
+    site_key="your-site-key",
+    secret_key="your-secret-key"
+)
 
 @app.route("/contact/", methods=["GET", "POST"])
 def home():
