@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "google-recaptcha"
-version = "2.0.0"
+version = "2.0.1"
 description = "Google recaptcha helps you protect your web form by using google's latest recaptcha (Completely Automated Public Turing test to tell Computers and Humans Apart) technology."
 authors = ["Jordan Raychev <jpraychev@gmail.com>"]
 maintainers = ["Jordan Raychev <jpraychev@gmail.com>"]
