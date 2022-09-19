@@ -24,8 +24,9 @@ Site's and secret's keys can be either passed to the object in your views file o
 
 from google_recaptcha import ReCaptcha
 app = Flask(__name__)
-recaptcha = ReCaptcha(app) or recaptcha = ReCaptcha(app, version='v3') # Uses v3 of Google's recaptcha by default 
-recaptcha = ReCaptcha(app, version='v2') # Use v2 of Google's recaptcha'
+recaptcha = ReCaptcha(app) # Uses version 3 by default
+recaptcha = ReCaptcha(app, version=3) # Explicitly set version 3 (same as above, just for brevity)
+recaptcha = ReCaptcha(app, version=2) # Excplicitly set version 2
 
 @app.route("/contact/", methods=["GET", "POST"])
 def home():
