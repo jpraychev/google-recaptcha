@@ -1,5 +1,12 @@
 # Change Log
 
+## [2.0.0] - 2022-09-19
+### Added
+- Google's recaptha version 2 (Checkbox "I am not a robot")
+
+## [1.1.5] - 2022-09-12
+### Changed
+- Minimal required Python version dropped to 3.7
 
 ## [1.1.4] - 2022-09-06
 ### Fixed

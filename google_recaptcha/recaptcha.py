@@ -19,22 +19,27 @@ class ReCaptcha:
 
     VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
     LIB_LOCATION = Path(__file__).parent
-    TEMPLATE_LOCATION = LIB_LOCATION.joinpath('templates/recaptcha.html')
+    TEMPLATE_LOCATION_V2 = LIB_LOCATION.joinpath('templates/recaptcha_v2.html')
+    TEMPLATE_LOCATION_V3 = LIB_LOCATION.joinpath('templates/recaptcha_v3.html')
 
     def __init__(
         self,
         app: str,
+        version: int = 3,
         site_key: str = None,
         site_secret: str = None
     ):
         app.context_processor(self.generate_code)
+        self.version = version
         self.site_key = os.getenv('RECAPTCHA_SITE_KEY') if site_key is None else site_key
         self.site_secret = os.getenv('RECAPTCHA_SECRET_KEY') if site_secret is None else site_secret
 
 
     def verify(self):
-        """Verifies if the provider google recaptcha response is correct.
-        The default threshold is 0.5
+        """Verifies if the provided google recaptcha response is correct.
+        
+        Version 3: The default threshold is 0.5
+        Version 2: Do not include a score aka threshold
 
         Raises:
             Exception: If response status code is different that 200
@@ -63,8 +68,13 @@ class ReCaptcha:
         Returns:
             dict: Returns recaptcha object that is dynamically included into specific view
         """
-        with open(self.TEMPLATE_LOCATION) as f:
-            data = f.read()
+        if self.version == 2:
+            with open(self.TEMPLATE_LOCATION_V2) as f:
+                data = f.read()
+
+        if self.version == 3:
+            with open(self.TEMPLATE_LOCATION_V3) as f:
+                data = f.read()
         
         return dict(recaptcha = Markup(self.parse_data(data)))
 
