@@ -44,7 +44,7 @@ app = Flask(__name__)
 recaptcha = ReCaptcha(
     app=app,
     site_key="your-site-key",
-    secret_key="your-secret-key"
+    site_secret="your-secret-key"
 )
 
 @app.route("/contact/", methods=["GET", "POST"])
